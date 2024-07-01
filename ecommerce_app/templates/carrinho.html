@@ -1,0 +1,18 @@
+<!-- ecommerce_app/templates/carrinho.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Carrinho - E-commerce{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h2>Seu Carrinho</h2>
+        <!-- Lógica para mostrar os produtos no carrinho -->
+    </div>
+    <div class="col-md-4">
+        <h4>Total: R$ 0,00</h4>
+        <a href="{% url 'finalizar_compra' %}" class="btn btn-success btn-lg btn-block">Finalizar Compra</a>
+    </div>
+</div>
+{% endblock %}

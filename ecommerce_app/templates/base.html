@@ -1,0 +1,55 @@
+<!-- ecommerce_app/templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}E-commerce{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Adicione aqui seus próprios arquivos CSS, se necessário -->
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">E-commerce</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Produtos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Carrinho</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Finalizar Compra</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Entrar</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-RgdO3j50MQ24Ht6D4lLjljW1H14WLSV+a/8Tcnqgdjw7oK4fB5YY3l90rczL7VcU" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-+0n0xVW2eSR5Xs1zke4U6FY2P0JqMs/2rVbVC2yCCOmN4c6wXjFrvlGyKX39qZIS" crossorigin="anonymous"></script>
+
+</body>
+</html>
